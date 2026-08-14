@@ -1,0 +1,2954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kesphania | Fashion Boutique</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#fff8fb;
+    color:#493941;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:white;
+    box-shadow:0 4px 20px rgba(120,55,80,.12);
+    padding:15px 3%;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.logo{
+    font-family:Georgia,serif;
+    font-size:32px;
+    font-weight:bold;
+    color:#a95170;
+    margin-right:auto;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:5px;
+}
+
+nav button{
+    border:0;
+    background:transparent;
+    color:#493941;
+    font-weight:900;
+    font-size:13px;
+    padding:11px 13px;
+    border-radius:25px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+nav button:hover,
+nav button.active{
+    background:#a95170;
+    color:white;
+    transform:translateY(-2px);
+}
+
+.header-actions{
+    display:flex;
+    gap:8px;
+}
+
+.icon-btn,
+.btn{
+    border:0;
+    cursor:pointer;
+    font-weight:900;
+    border-radius:25px;
+    padding:11px 17px;
+}
+
+.icon-btn{
+    background:#fff0f5;
+    color:#984a67;
+}
+
+.icon-btn:hover{
+    background:#edc2d2;
+}
+
+.cart-count{
+    background:#a95170;
+    color:white;
+    padding:2px 7px;
+    border-radius:20px;
+}
+
+/* ================= TABS ================= */
+
+.tab{
+    display:none;
+    min-height:75vh;
+    padding:70px 6%;
+    animation:fade .35s ease;
+}
+
+.tab.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= HOME ================= */
+
+.hero{
+    min-height:75vh;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    background:
+        linear-gradient(rgba(255,245,249,.84),rgba(255,245,249,.84)),
+        url("https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=1600")
+        center/cover;
+    border-radius:30px;
+    padding:50px 20px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:clamp(55px,9vw,100px);
+    color:#a95170;
+}
+
+.hero h2{
+    font-size:30px;
+    margin:10px;
+}
+
+.hero p{
+    max-width:650px;
+    margin:15px auto 25px;
+    color:#66565e;
+    font-size:17px;
+}
+
+.btn{
+    background:#a95170;
+    color:white;
+}
+
+.btn:hover{
+    background:#843f5a;
+    transform:translateY(-2px);
+}
+
+.secondary{
+    background:#f3dce5;
+    color:#91465f;
+}
+
+/* ================= TITLES ================= */
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-family:Georgia,serif;
+    font-size:42px;
+    color:#9e4e6b;
+}
+
+.section-title p{
+    margin-top:8px;
+    color:#76656d;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-grid,
+.collection-grid,
+.product-grid,
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:20px;
+}
+
+.category-card{
+    background:white;
+    padding:30px 20px;
+    text-align:center;
+    border-radius:25px;
+    box-shadow:0 7px 25px rgba(109,56,80,.10);
+    cursor:pointer;
+    transition:.25s;
+}
+
+.category-card:hover{
+    transform:translateY(-7px);
+    border:2px solid #e4aec1;
+}
+
+.category-card h3{
+    color:#994b68;
+    margin:12px 0 5px;
+}
+
+.category-icon{
+    font-size:48px;
+}
+
+/* ================= COLLECTION ================= */
+
+.collection-card,
+.guide-box{
+    background:white;
+    border-radius:25px;
+    padding:25px;
+    box-shadow:0 7px 25px rgba(109,56,80,.10);
+}
+
+.collection-card{
+    min-height:220px;
+    display:flex;
+    flex-direction:column;
+    justify-content:end;
+    background:linear-gradient(145deg,#fff,#f8dfe8);
+}
+
+.collection-card h3{
+    font-family:Georgia,serif;
+    font-size:27px;
+    color:#913f5e;
+}
+
+.collection-card p{
+    margin:8px 0 15px;
+    color:#705e66;
+}
+
+/* ================= PRODUCTS ================= */
+
+.filterbar{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:30px;
+}
+
+.filterbar button{
+    border:1px solid #e6b9c9;
+    background:white;
+    color:#934d68;
+    padding:9px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:800;
+}
+
+.filterbar button.active{
+    background:#a95170;
+    color:white;
+}
+
+.product-card{
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 7px 25px rgba(109,56,80,.12);
+    transition:.25s;
+    position:relative;
+    padding-bottom:18px;
+}
+
+.product-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 30px rgba(109,56,80,.18);
+}
+
+.product-image{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    display:block;
+}
+
+.product-info{
+    padding:16px;
+}
+
+.product-info h3{
+    color:#6e3f50;
+    margin-bottom:5px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:900;
+    color:#a95170;
+    margin:9px 0;
+}
+
+.tag{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#a95170;
+    color:white;
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+    z-index:2;
+}
+
+.product-card .btn{
+    width:100%;
+}
+
+/* ================= OUTFIT & STYLE CARDS ================= */
+
+.choice-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.choice-card{
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 7px 25px rgba(109,56,80,.12);
+    cursor:pointer;
+    transition:.3s;
+}
+
+.choice-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 14px 35px rgba(109,56,80,.18);
+}
+
+.choice-card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    display:block;
+}
+
+.choice-card div{
+    padding:20px;
+}
+
+.choice-card h3{
+    color:#984a67;
+    margin-bottom:8px;
+    font-size:22px;
+}
+
+.choice-card p{
+    color:#6e6066;
+    line-height:1.6;
+}
+
+/* ================= SIZE ================= */
+
+.table-wrap{
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 7px 25px rgba(109,56,80,.10);
+}
+
+th,td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #f0dce3;
+}
+
+th{
+    background:#a95170;
+    color:white;
+}
+
+/* ================= REVIEWS ================= */
+
+.review-card{
+    background:white;
+    padding:22px;
+    border-radius:22px;
+    box-shadow:0 7px 25px rgba(109,56,80,.10);
+}
+
+.stars{
+    color:#e5a52c;
+    font-size:20px;
+}
+
+.review-card h4{
+    margin:10px 0;
+    color:#713f51;
+}
+
+.review-card p{
+    color:#6e6066;
+    line-height:1.6;
+}
+
+.form-box{
+    max-width:700px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 7px 25px rgba(109,56,80,.10);
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:13px;
+    border:1px solid #e4c8d2;
+    border-radius:12px;
+    margin:7px 0 13px;
+    font:inherit;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    text-align:center;
+    border-radius:28px;
+    box-shadow:0 7px 25px rgba(109,56,80,.12);
+}
+
+.contact-box h3{
+    color:#a95170;
+    font-size:25px;
+    margin:15px 0;
+}
+
+.contact-number{
+    font-size:20px;
+    font-weight:bold;
+    color:#6d3d50;
+    margin:8px;
+}
+
+/* ================= MODALS ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(43,23,32,.68);
+    z-index:3000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:#fffafa;
+    width:min(650px,100%);
+    max-height:92vh;
+    overflow:auto;
+    border-radius:28px;
+    padding:30px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:12px;
+    font-size:30px;
+    color:#8e4a62;
+    cursor:pointer;
+}
+
+/* ================= CART ================= */
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:13px 0;
+    border-bottom:1px solid #efdce3;
+}
+
+.cart-total{
+    text-align:right;
+    font-size:22px;
+    font-weight:bold;
+    color:#9b4967;
+    margin:20px 0;
+}
+
+.empty{
+    text-align:center;
+    padding:30px;
+    color:#806d75;
+}
+
+/* ================= ACCOUNT ================= */
+
+.account-intro{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.profile-avatar{
+    font-size:55px;
+}
+
+/* ================= PURCHASE HISTORY ================= */
+
+.order-card{
+    background:white;
+    max-width:850px;
+    margin:18px auto;
+    padding:23px;
+    border-radius:23px;
+    box-shadow:0 7px 25px rgba(109,56,80,.10);
+}
+
+.order-head{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    border-bottom:1px solid #efdce3;
+    padding-bottom:13px;
+}
+
+.order-id{
+    font-size:20px;
+    font-weight:bold;
+    color:#9e4e6b;
+}
+
+.status{
+    padding:7px 13px;
+    border-radius:20px;
+    background:#f3d7e2;
+    color:#91455f;
+    font-weight:bold;
+}
+
+.order-line{
+    display:flex;
+    justify-content:space-between;
+    padding:10px;
+    background:#fff5f8;
+    border-radius:10px;
+    margin:6px 0;
+}
+
+.order-total{
+    text-align:right;
+    color:#a95170;
+    font-weight:bold;
+    font-size:20px;
+}
+
+/* ================= TRACKING ================= */
+
+.track-box{
+    background:#fff0f5;
+    padding:22px;
+    border-radius:20px;
+    margin-top:20px;
+}
+
+.track-number{
+    color:#a95170;
+    font-size:23px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.track-progress{
+    display:flex;
+    justify-content:space-between;
+    gap:7px;
+    overflow:auto;
+    margin:25px 0;
+}
+
+.track-step{
+    min-width:95px;
+    text-align:center;
+    font-size:11px;
+    font-weight:bold;
+    color:#aa9ca2;
+}
+
+.track-circle{
+    width:34px;
+    height:34px;
+    margin:auto auto 7px;
+    border-radius:50%;
+    background:#e8dce1;
+    display:grid;
+    place-items:center;
+}
+
+.track-step.active{
+    color:#a95170;
+}
+
+.track-step.active .track-circle{
+    background:#a95170;
+    color:white;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#6d3d50;
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    header{
+        justify-content:center;
+    }
+
+    .logo{
+        width:100%;
+        text-align:center;
+        margin:0;
+    }
+
+    nav{
+        width:100%;
+    }
+
+    nav button{
+        font-size:11px;
+        padding:8px;
+    }
+
+    .header-actions{
+        width:100%;
+        justify-content:center;
+    }
+
+    .choice-card img{
+        height:260px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="logo">Kesphania</div>
+
+<nav>
+<button class="tab-btn active" onclick="showTab('home',this)">HOME</button>
+<button class="tab-btn" onclick="showTab('category',this)">CATEGORY</button>
+<button class="tab-btn" onclick="showTab('collection',this)">COLLECTION</button>
+<button class="tab-btn" onclick="showTab('shop',this)">SHOP</button>
+<button class="tab-btn" onclick="showTab('ideas',this)">OUTFIT IDEAS</button>
+<button class="tab-btn" onclick="showTab('style',this)">STYLE GUIDE</button>
+<button class="tab-btn" onclick="showTab('size',this)">SIZE GUIDE</button>
+<button class="tab-btn" onclick="showTab('reviews',this)">REVIEWS</button>
+<button class="tab-btn" onclick="showTab('history',this)">PURCHASE HISTORY</button>
+<button class="tab-btn" onclick="showTab('tracking',this)">TRACK ORDER</button>
+<button class="tab-btn" onclick="showTab('contact',this)">CONTACT</button>
+</nav>
+
+<div class="header-actions">
+<button class="icon-btn" onclick="openAccount()">👤 ACCOUNT</button>
+
+<button class="icon-btn" onclick="openCart()">
+🛍 CART <span class="cart-count" id="cartCount">0</span>
+</button>
+</div>
+
+</header>
+
+<!-- ================= HOME ================= -->
+
+<section class="tab active" id="home">
+
+<div class="hero">
+
+<div>
+
+<h1>Kesphania</h1>
+
+<h2>Discover Your Style</h2>
+
+<p>
+Cute, feminine and stylish fashion pieces carefully selected
+for your everyday looks.
+</p>
+
+<button class="btn" onclick="showTab('shop')">
+SHOP NOW
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CATEGORY ================= -->
+
+<section class="tab" id="category">
+
+<div class="section-title">
+<h2>Shop by Category</h2>
+<p>Choose a category to explore our products.</p>
+</div>
+
+<div class="category-grid">
+
+<div class="category-card" onclick="openCategory('Tops')">
+<div class="category-icon">👚</div>
+<h3>Tops</h3>
+<p>Blouses, shirts and cute tops</p>
+</div>
+
+<div class="category-card" onclick="openCategory('Dresses')">
+<div class="category-icon">👗</div>
+<h3>Dresses</h3>
+<p>Casual and elegant dresses</p>
+</div>
+
+<div class="category-card" onclick="openCategory('Bottoms')">
+<div class="category-icon">👖</div>
+<h3>Bottoms</h3>
+<p>Skirts and trousers</p>
+</div>
+
+<div class="category-card" onclick="openCategory('Shoes')">
+<div class="category-icon">👠</div>
+<h3>Shoes</h3>
+<p>Beautiful footwear</p>
+</div>
+
+<div class="category-card" onclick="openCategory('Bags')">
+<div class="category-icon">👜</div>
+<h3>Bags</h3>
+<p>Chic bags for every occasion</p>
+</div>
+
+<div class="category-card" onclick="openCategory('Accessories')">
+<div class="category-icon">💍</div>
+<h3>Accessories</h3>
+<p>Jewelry and hair accessories</p>
+</div>
+
+</div>
+</section>
+
+<!-- ================= COLLECTION ================= -->
+
+<section class="tab" id="collection">
+
+<div class="section-title">
+<h2>Kesphania Collection</h2>
+<p>Our specially selected fashion collections.</p>
+</div>
+
+<div class="collection-grid">
+
+<div class="collection-card">
+<h3>🌸 Soft Bloom</h3>
+<p>Soft feminine fashion for everyday looks.</p>
+<button class="btn" onclick="openCategory('Dresses')">EXPLORE</button>
+</div>
+
+<div class="collection-card">
+<h3>✨ City Chic</h3>
+<p>Modern outfits for busy days.</p>
+<button class="btn" onclick="openCategory('Tops')">EXPLORE</button>
+</div>
+
+<div class="collection-card">
+<h3>☕ Weekend Muse</h3>
+<p>Relaxed and stylish weekend pieces.</p>
+<button class="btn" onclick="openCategory('Bottoms')">EXPLORE</button>
+</div>
+
+<div class="collection-card">
+<h3>🎀 Signature Accessories</h3>
+<p>Complete your look with beautiful details.</p>
+<button class="btn" onclick="openCategory('Accessories')">EXPLORE</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= SHOP ================= -->
+
+<section class="tab" id="shop">
+
+<div class="section-title">
+<h2>Kesphania Fashion Shop</h2>
+<p>Real fashion photos and products.</p>
+</div>
+
+<div class="filterbar">
+
+<button class="active" onclick="filterProducts('All',this)">ALL</button>
+<button onclick="filterProducts('Tops',this)">TOPS</button>
+<button onclick="filterProducts('Dresses',this)">DRESSES</button>
+<button onclick="filterProducts('Bottoms',this)">BOTTOMS</button>
+<button onclick="filterProducts('Shoes',this)">SHOES</button>
+<button onclick="filterProducts('Bags',this)">BAGS</button>
+<button onclick="filterProducts('Accessories',this)">ACCESSORIES</button>
+
+</div>
+
+<div class="product-grid" id="products"></div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- ================= OUTFIT IDEAS ========================== -->
+<!-- ========================================================= -->
+
+<section class="tab" id="ideas">
+
+<div class="section-title">
+
+<h2>👗 Outfit Ideas</h2>
+
+<p>
+Choose the outfit that matches your occasion and personal style.
+</p>
+
+</div>
+
+<div class="choice-grid">
+
+<!-- 1 -->
+
+<div class="choice-card"
+onclick="outfitChoice('Casual Day')">
+
+<img
+src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Casual Day Outfit">
+
+<div>
+
+<h3>🌸 Casual Day</h3>
+
+<p>
+A relaxed combination of a cute top, comfortable bottoms,
+and simple shoes for everyday activities.
+</p>
+
+</div>
+
+</div>
+
+<!-- 2 -->
+
+<div class="choice-card"
+onclick="outfitChoice('Coffee Date')">
+
+<img
+src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Coffee Date Outfit">
+
+<div>
+
+<h3>☕ Coffee Date</h3>
+
+<p>
+A soft and feminine outfit perfect for coffee dates,
+casual meetups, and relaxed afternoons.
+</p>
+
+</div>
+
+</div>
+
+<!-- 3 -->
+
+<div class="choice-card"
+onclick="outfitChoice('Elegant Night')">
+
+<img
+src="https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Elegant Night Outfit">
+
+<div>
+
+<h3>✨ Elegant Night</h3>
+
+<p>
+Choose a sophisticated dress, elegant shoes, and a small
+bag for dinner parties and special occasions.
+</p>
+
+</div>
+
+</div>
+
+<!-- 4 -->
+
+<div class="choice-card"
+onclick="outfitChoice('Weekend Getaway')">
+
+<img
+src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Weekend Outfit">
+
+<div>
+
+<h3>🌿 Weekend Getaway</h3>
+
+<p>
+A comfortable but stylish look for shopping, traveling,
+walking around town, or weekend adventures.
+</p>
+
+</div>
+
+</div>
+
+<!-- 5 -->
+
+<div class="choice-card"
+onclick="outfitChoice('Office Chic')">
+
+<img
+src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Office Chic Outfit">
+
+<div>
+
+<h3>💼 Office Chic</h3>
+
+<p>
+A polished combination of a blouse, trousers, simple shoes,
+and a structured bag.
+</p>
+
+</div>
+
+</div>
+
+<!-- 6 -->
+
+<div class="choice-card"
+onclick="outfitChoice('Party Look')">
+
+<img
+src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Party Outfit">
+
+<div>
+
+<h3>🎉 Party Look</h3>
+
+<p>
+Stand out with a fashionable dress, statement accessories,
+and elegant footwear for celebrations.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- ================= STYLE GUIDE ============================ -->
+<!-- ========================================================= -->
+
+<section class="tab" id="style">
+
+<div class="section-title">
+
+<h2>🎀 Style Guide</h2>
+
+<p>
+Choose a styling tip and learn how to improve your outfit.
+</p>
+
+</div>
+
+<div class="choice-grid">
+
+<!-- 1 -->
+
+<div class="choice-card"
+onclick="styleChoice('Color Matching')">
+
+<img
+src="https://images.pexels.com/photos/1755428/pexels-photo-1755428.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Color Matching Style">
+
+<div>
+
+<h3>🎨 Color Matching</h3>
+
+<p>
+Pair soft colors with neutral shades. Use two or three
+coordinating colors to keep your outfit balanced.
+</p>
+
+</div>
+
+</div>
+
+<!-- 2 -->
+
+<div class="choice-card"
+onclick="styleChoice('Accessory Styling')">
+
+<img
+src="https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Accessory Styling">
+
+<div>
+
+<h3>💎 Accessory Styling</h3>
+
+<p>
+Use necklaces, earrings, bracelets, or hair accessories
+to give a simple outfit more personality.
+</p>
+
+</div>
+
+</div>
+
+<!-- 3 -->
+
+<div class="choice-card"
+onclick="styleChoice('Layering')">
+
+<img
+src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Layering Fashion">
+
+<div>
+
+<h3>🧥 Layering</h3>
+
+<p>
+Add a cardigan, blazer, jacket, or light outer layer
+to create depth and make your outfit more interesting.
+</p>
+
+</div>
+
+</div>
+
+<!-- 4 -->
+
+<div class="choice-card"
+onclick="styleChoice('Shoe Matching')">
+
+<img
+src="https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Shoe Styling">
+
+<div>
+
+<h3>👠 Shoe Matching</h3>
+
+<p>
+Match your shoes with the occasion. Flats work for casual
+looks while heels can make an outfit more elegant.
+</p>
+
+</div>
+
+</div>
+
+<!-- 5 -->
+
+<div class="choice-card"
+onclick="styleChoice('Bag Matching')">
+
+<img
+src="https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Bag Styling">
+
+<div>
+
+<h3>👜 Bag Matching</h3>
+
+<p>
+Choose a bag that complements your outfit without making
+the overall look feel too crowded.
+</p>
+
+</div>
+
+</div>
+
+<!-- 6 -->
+
+<div class="choice-card"
+onclick="styleChoice('Minimalist Styling')">
+
+<img
+src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=900"
+alt="Minimalist Fashion">
+
+<div>
+
+<h3>🤍 Minimalist Styling</h3>
+
+<p>
+Keep your look clean by combining basic pieces with
+simple accessories and neutral colors.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SIZE ================= -->
+
+<section class="tab" id="size">
+
+<div class="section-title">
+
+<h2>Size Guide</h2>
+
+<p>General clothing size reference.</p>
+
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Size</th>
+<th>Bust</th>
+<th>Waist</th>
+<th>Hips</th>
+</tr>
+
+<tr>
+<td>XS</td>
+<td>78–82 cm</td>
+<td>60–64 cm</td>
+<td>84–88 cm</td>
+</tr>
+
+<tr>
+<td>S</td>
+<td>83–87 cm</td>
+<td>65–69 cm</td>
+<td>89–93 cm</td>
+</tr>
+
+<tr>
+<td>M</td>
+<td>88–92 cm</td>
+<td>70–74 cm</td>
+<td>94–98 cm</td>
+</tr>
+
+<tr>
+<td>L</td>
+<td>93–98 cm</td>
+<td>75–80 cm</td>
+<td>99–104 cm</td>
+</tr>
+
+<tr>
+<td>XL</td>
+<td>99–104 cm</td>
+<td>81–86 cm</td>
+<td>105–110 cm</td>
+</tr>
+
+</table>
+
+</div>
+
+<br><br>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Shoe Size</th>
+<th>Foot Length</th>
+</tr>
+
+<tr><td>36</td><td>23.0 cm</td></tr>
+<tr><td>37</td><td>23.5 cm</td></tr>
+<tr><td>38</td><td>24.0 cm</td></tr>
+<tr><td>39</td><td>24.5 cm</td></tr>
+<tr><td>40</td><td>25.0 cm</td></tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="tab" id="reviews">
+
+<div class="section-title">
+
+<h2>Customer Reviews</h2>
+
+<p>What Kesphania shoppers are saying.</p>
+
+</div>
+
+<div class="review-grid" id="reviewList"></div>
+
+<div class="form-box">
+
+<h3>Write a Review</h3>
+
+<input id="reviewName" placeholder="Your name">
+
+<select id="reviewRating">
+
+<option value="5">★★★★★ 5 Stars</option>
+<option value="4">★★★★☆ 4 Stars</option>
+<option value="3">★★★☆☆ 3 Stars</option>
+<option value="2">★★☆☆☆ 2 Stars</option>
+<option value="1">★☆☆☆☆ 1 Star</option>
+
+</select>
+
+<textarea
+id="reviewText"
+rows="4"
+placeholder="Your review"></textarea>
+
+<button class="btn" onclick="addReview()">
+POST REVIEW
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= PURCHASE HISTORY ================= -->
+
+<section class="tab" id="history">
+
+<div class="section-title">
+
+<h2>🧾 Purchase History</h2>
+
+<p>Your purchases are shown here while you are logged in.</p>
+
+</div>
+
+<div id="purchaseHistoryList"></div>
+
+</section>
+
+<!-- ================= TRACKING ================= -->
+
+<section class="tab" id="tracking">
+
+<div class="section-title">
+
+<h2>🚚 Track Your Order</h2>
+
+<p>Enter your tracking number.</p>
+
+</div>
+
+<div class="form-box">
+
+<input
+id="trackingInput"
+placeholder="Example: KSP-12345678">
+
+<button class="btn" onclick="searchTracking()">
+TRACK ORDER
+</button>
+
+<div id="trackingResult"></div>
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="tab" id="contact">
+
+<div class="section-title">
+
+<h2>Contact the Sellers</h2>
+
+<p>Need help with your order or products?</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>Kesie Mantos & Stephanie Viesca</h3>
+
+<p>📞 Contact Numbers</p>
+
+<div class="contact-number">
+09075040696
+</div>
+
+<div class="contact-number">
+0938032582
+</div>
+
+<br>
+
+<p>
+We are happy to answer your questions about Kesphania products,
+orders and delivery.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Kesphania</p>
+<p>Fashion inspiration for every occasion.</p>
+
+</footer>
+
+<!-- ================= CART MODAL ================= -->
+
+<div class="modal" id="cartModal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeCart()">×</span>
+
+<h2>🛍 Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<div class="cart-total" id="cartTotal">
+Total: ₱0
+</div>
+
+<button class="btn" onclick="checkout()">
+PROCEED TO CHECKOUT
+</button>
+
+</div>
+
+</div>
+
+<!-- ================= ACCOUNT MODAL ================= -->
+
+<div class="modal" id="accountModal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeAccount()">×</span>
+
+<h2>👤 Kesphania Account</h2>
+
+<div id="accountArea"></div>
+
+</div>
+
+</div>
+
+<!-- ================= CHECKOUT ================= -->
+
+<div class="modal" id="checkoutModal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeCheckout()">×</span>
+
+<h2>🛍 Checkout</h2>
+
+<br>
+
+<input id="checkoutName" placeholder="Full Name">
+
+<input id="checkoutPhone" placeholder="Phone Number">
+
+<input id="checkoutAddress" placeholder="Delivery Address">
+
+<input id="checkoutCity" placeholder="City / Municipality">
+
+<input id="checkoutProvince" placeholder="Province">
+
+<input id="checkoutPostal" placeholder="Postal Code">
+
+<h3>Payment Method</h3>
+
+<label>
+<input type="radio" name="payment" value="Cash on Delivery" checked>
+Cash on Delivery
+</label>
+
+<br>
+
+<label>
+<input type="radio" name="payment" value="GCash">
+GCash Demo
+</label>
+
+<br>
+
+<label>
+<input type="radio" name="payment" value="Bank Transfer">
+Bank Transfer Demo
+</label>
+
+<br><br>
+
+<h3>
+Total:
+<span id="checkoutTotal">₱0</span>
+</h3>
+
+<br>
+
+<button class="btn" onclick="placeOrder()">
+PLACE ORDER
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* ================= PRODUCT DATABASE ================= */
+
+const products=[
+
+{
+name:"Floral Blouse",
+cat:"Tops",
+price:899,
+image:"https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Satin Bow Top",
+cat:"Tops",
+price:799,
+image:"https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Classic White Blouse",
+cat:"Tops",
+price:849,
+image:"https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Rose Midi Dress",
+cat:"Dresses",
+price:1299,
+image:"https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Soft Bloom Dress",
+cat:"Dresses",
+price:1499,
+image:"https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Elegant Black Dress",
+cat:"Dresses",
+price:1599,
+image:"https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Pleated Skirt",
+cat:"Bottoms",
+price:999,
+image:"https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Wide Leg Trousers",
+cat:"Bottoms",
+price:1199,
+image:"https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Denim Mini Skirt",
+cat:"Bottoms",
+price:899,
+image:"https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Mary Jane Shoes",
+cat:"Shoes",
+price:1399,
+image:"https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Everyday Flats",
+cat:"Shoes",
+price:1099,
+image:"https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Classic Sneakers",
+cat:"Shoes",
+price:1499,
+image:"https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Mini Shoulder Bag",
+cat:"Bags",
+price:1199,
+image:"https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Ribbon Tote Bag",
+cat:"Bags",
+price:1299,
+image:"https://images.pexels.com/photos/1152070/pexels-photo-1152070.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Elegant Crossbody",
+cat:"Bags",
+price:1399,
+image:"https://images.pexels.com/photos/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Pearl Necklace",
+cat:"Accessories",
+price:599,
+image:"https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Ribbon Hair Clip",
+cat:"Accessories",
+price:299,
+image:"https://images.pexels.com/photos/985635/pexels-photo-985635.jpeg?auto=compress&cs=tinysrgb&w=900"
+},
+
+{
+name:"Charm Earrings",
+cat:"Accessories",
+price:499,
+image:"https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=900"
+}
+
+];
+
+/* ================= DATA ================= */
+
+let cart=
+JSON.parse(localStorage.getItem("kesphaniaCart")||"[]");
+
+let reviews=
+JSON.parse(localStorage.getItem("kesphaniaReviews")||"null")||
+[
+{
+name:"Mia",
+rating:5,
+text:"Beautiful pieces and very easy to browse!"
+},
+{
+name:"Sophia",
+rating:5,
+text:"I love the feminine style of Kesphania!"
+},
+{
+name:"Alyssa",
+rating:4,
+text:"The categories are very helpful."
+}
+];
+
+const steps=[
+"Order Placed",
+"Paid",
+"Packed",
+"Shipped",
+"Out for Delivery",
+"Received"
+];
+
+/* ================= TAB SYSTEM ================= */
+
+function showTab(id,button){
+
+document.querySelectorAll(".tab")
+.forEach(tab=>{
+tab.classList.remove("active");
+});
+
+document.getElementById(id).classList.add("active");
+
+document.querySelectorAll(".tab-btn")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+if(button){
+button.classList.add("active");
+}
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+/* ================= CATEGORY ================= */
+
+function openCategory(category){
+
+showTab("shop");
+
+setTimeout(()=>{
+
+document.querySelectorAll(".filterbar button")
+.forEach(btn=>btn.classList.remove("active"));
+
+filterProducts(category);
+
+},100);
+
+}
+
+/* ================= MONEY ================= */
+
+function money(n){
+
+return "₱"+Number(n).toLocaleString();
+
+}
+
+/* ================= PRODUCTS ================= */
+
+function renderProducts(list=products){
+
+document.getElementById("products").innerHTML=
+
+list.map((p,i)=>`
+
+<div class="product-card">
+
+<span class="tag">
+${p.cat}
+</span>
+
+<img
+class="product-image"
+src="${p.image}"
+alt="${p.name}"
+loading="lazy"
+onerror="this.src='https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=900'">
+
+<div class="product-info">
+
+<h3>${p.name}</h3>
+
+<p>${p.cat}</p>
+
+<div class="price">
+${money(p.price)}
+</div>
+
+<button
+class="btn"
+onclick="addToCart(${products.indexOf(p)})">
+ADD TO CART
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+function filterProducts(cat,btn){
+
+if(btn){
+
+document.querySelectorAll(".filterbar button")
+.forEach(b=>b.classList.remove("active"));
+
+btn.classList.add("active");
+
+}
+
+if(cat==="All"){
+
+renderProducts(products);
+
+}else{
+
+renderProducts(
+products.filter(p=>p.cat===cat)
+);
+
+}
+
+showTab("shop");
+
+}
+
+/* ================= OUTFIT IDEAS ================= */
+
+function outfitChoice(outfit){
+
+const choices={
+
+"Casual Day":
+"🌸 Casual Day is perfect for school, shopping, casual trips, and everyday activities. Try a comfortable top with a skirt or trousers and simple shoes.",
+
+"Coffee Date":
+"☕ Coffee Date works well with a feminine blouse, skirt, small bag, and comfortable flats.",
+
+"Elegant Night":
+"✨ Elegant Night is best for dinners and special events. Choose a dress with elegant shoes and a small statement bag.",
+
+"Weekend Getaway":
+"🌿 Weekend Getaway combines comfort and style. Try a relaxed top, comfortable bottoms, sneakers, and a crossbody bag.",
+
+"Office Chic":
+"💼 Office Chic is polished and professional. Pair a blouse with trousers, simple shoes, and a structured bag.",
+
+"Party Look":
+"🎉 Party Look is made for celebrations. Choose a stylish dress, statement accessories, and elegant footwear."
+
+};
+
+alert(choices[outfit]);
+
+}
+
+/* ================= STYLE GUIDE ================= */
+
+function styleChoice(style){
+
+const tips={
+
+"Color Matching":
+"🎨 COLOR MATCHING\n\nChoose 2–3 colors that complement each other. Soft pink, cream, beige, white, and other neutral colors are easy to combine.",
+
+"Accessory Styling":
+"💎 ACCESSORY STYLING\n\nIf your outfit is simple, add a necklace, earrings, bracelet, or hair accessory. Avoid using too many statement pieces at once.",
+
+"Layering":
+"🧥 LAYERING\n\nAdd a cardigan, blazer, jacket, or light outer layer. Keep the inner outfit simple so the overall style does not look crowded.",
+
+"Shoe Matching":
+"👠 SHOE MATCHING\n\nUse flats or sneakers for casual outfits. Choose heels or elegant shoes for dresses and formal occasions.",
+
+"Bag Matching":
+"👜 BAG MATCHING\n\nA small shoulder bag or crossbody works well for casual looks. A structured bag can make an office outfit look more polished.",
+
+"Minimalist Styling":
+"🤍 MINIMALIST STYLING\n\nChoose basic clothing pieces, neutral colors, clean shapes, and only a few accessories for a simple and sophisticated appearance."
+
+};
+
+alert(tips[style]);
+
+}
+
+/* ================= CART ================= */
+
+function addToCart(i){
+
+cart.push(products[i]);
+
+saveCart();
+
+alert(products[i].name+" added to your cart!");
+
+}
+
+function saveCart(){
+
+localStorage.setItem(
+"kesphaniaCart",
+JSON.stringify(cart)
+);
+
+document.getElementById("cartCount")
+.textContent=cart.length;
+
+}
+
+function openCart(){
+
+renderCart();
+
+document.getElementById("cartModal")
+.style.display="flex";
+
+}
+
+function closeCart(){
+
+document.getElementById("cartModal")
+.style.display="none";
+
+}
+
+function renderCart(){
+
+const box=document.getElementById("cartItems");
+
+if(!cart.length){
+
+box.innerHTML=
+'<div class="empty">Your cart is empty.</div>';
+
+}else{
+
+box.innerHTML=
+
+cart.map((p,i)=>`
+
+<div class="cart-item">
+
+<span>
+
+<img
+src="${p.image}"
+style="width:55px;height:55px;object-fit:cover;border-radius:10px;vertical-align:middle;margin-right:8px">
+
+${p.name}
+
+<br>
+
+<small>${money(p.price)}</small>
+
+</span>
+
+<button onclick="removeCart(${i})">
+Remove
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+document.getElementById("cartTotal")
+.textContent=
+"Total: "+
+money(cart.reduce((a,p)=>a+p.price,0));
+
+}
+
+function removeCart(i){
+
+cart.splice(i,1);
+
+saveCart();
+
+renderCart();
+
+}
+
+/* ================= ACCOUNT ================= */
+
+function openAccount(){
+
+renderAccount();
+
+document.getElementById("accountModal")
+.style.display="flex";
+
+}
+
+function closeAccount(){
+
+document.getElementById("accountModal")
+.style.display="none";
+
+}
+
+function safe(v){
+
+return String(v||"")
+.replace(/[&<>"']/g,m=>({
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[m]));
+
+}
+
+function renderAccount(){
+
+let account=
+JSON.parse(
+localStorage.getItem("kesphaniaAccount")||"null"
+);
+
+let area=
+document.getElementById("accountArea");
+
+if(!account){
+
+area.innerHTML=`
+
+<div class="account-intro">
+
+<div class="profile-avatar">✨</div>
+
+<h3>Create New Account</h3>
+
+<p>Create your own Kesphania account.</p>
+
+</div>
+
+<input id="newName" placeholder="Full Name">
+
+<input id="newEmail" type="email" placeholder="Email">
+
+<input id="newPhone" placeholder="Phone Number">
+
+<input id="newPassword" type="password" placeholder="Create Password">
+
+<input id="newAddress" placeholder="Address">
+
+<button
+class="btn"
+style="width:100%"
+onclick="createAccount()">
+
+CREATE NEW ACCOUNT
+
+</button>
+
+<hr style="margin:25px 0">
+
+<h3>Already have an account?</h3>
+
+<input id="loginEmail" type="email" placeholder="Email">
+
+<input id="loginPassword" type="password" placeholder="Password">
+
+<button
+class="btn"
+onclick="loginAccount()">
+
+LOG IN
+
+</button>
+
+`;
+
+}else{
+
+area.innerHTML=`
+
+<div class="account-intro">
+
+<div class="profile-avatar">✨</div>
+
+<h3>Welcome, ${safe(account.name)}</h3>
+
+<p>${safe(account.email)}</p>
+
+</div>
+
+<p>
+<b>Phone:</b>
+${safe(account.phone)}
+</p>
+
+<p>
+<b>Address:</b>
+${safe(account.address)}
+</p>
+
+<br>
+
+<button
+class="btn"
+onclick="editAccount()">
+EDIT PROFILE
+</button>
+
+<button
+class="btn secondary"
+onclick="logout()">
+LOG OUT
+</button>
+
+`;
+
+}
+
+}
+
+/* ================= CREATE ACCOUNT ================= */
+
+function createAccount(){
+
+let name=
+document.getElementById("newName").value.trim();
+
+let email=
+document.getElementById("newEmail").value.trim();
+
+let phone=
+document.getElementById("newPhone").value.trim();
+
+let password=
+document.getElementById("newPassword").value;
+
+let address=
+document.getElementById("newAddress").value.trim();
+
+if(!name||!email||!password){
+
+alert(
+"Please complete your name, email and password."
+);
+
+return;
+
+}
+
+let accounts=
+JSON.parse(
+localStorage.getItem("kesphaniaAccounts")||"[]"
+);
+
+if(
+accounts.some(
+a=>a.email.toLowerCase()===email.toLowerCase()
+)
+){
+
+alert("An account with this email already exists.");
+
+return;
+
+}
+
+let newAccount={
+name,
+email,
+phone,
+password,
+address
+};
+
+accounts.push(newAccount);
+
+localStorage.setItem(
+"kesphaniaAccounts",
+JSON.stringify(accounts)
+);
+
+localStorage.setItem(
+"kesphaniaAccount",
+JSON.stringify(newAccount)
+);
+
+alert("Account created successfully!");
+
+renderAccount();
+
+}
+
+/* ================= LOGIN ================= */
+
+function loginAccount(){
+
+let email=
+document.getElementById("loginEmail").value.trim();
+
+let password=
+document.getElementById("loginPassword").value;
+
+let accounts=
+JSON.parse(
+localStorage.getItem("kesphaniaAccounts")||"[]"
+);
+
+let account=
+accounts.find(
+a=>
+a.email.toLowerCase()===email.toLowerCase()
+&&
+a.password===password
+);
+
+if(!account){
+
+alert(
+"Incorrect email or password."
+);
+
+return;
+
+}
+
+localStorage.setItem(
+"kesphaniaAccount",
+JSON.stringify(account)
+);
+
+alert("Welcome back, "+account.name+"!");
+
+renderAccount();
+
+renderPurchaseHistory();
+
+}
+
+/* ================= EDIT ACCOUNT ================= */
+
+function editAccount(){
+
+let a=
+JSON.parse(
+localStorage.getItem("kesphaniaAccount")
+);
+
+document.getElementById("accountArea")
+.innerHTML=`
+
+<input
+id="editName"
+value="${safe(a.name)}"
+placeholder="Full Name">
+
+<input
+id="editEmail"
+value="${safe(a.email)}"
+placeholder="Email">
+
+<input
+id="editPhone"
+value="${safe(a.phone)}"
+placeholder="Phone">
+
+<input
+id="editAddress"
+value="${safe(a.address)}"
+placeholder="Address">
+
+<button
+class="btn"
+onclick="saveAccount()">
+SAVE CHANGES
+</button>
+
+`;
+
+}
+
+function saveAccount(){
+
+let account=
+JSON.parse(
+localStorage.getItem("kesphaniaAccount")
+);
+
+account.name=
+document.getElementById("editName").value;
+
+account.email=
+document.getElementById("editEmail").value;
+
+account.phone=
+document.getElementById("editPhone").value;
+
+account.address=
+document.getElementById("editAddress").value;
+
+localStorage.setItem(
+"kesphaniaAccount",
+JSON.stringify(account)
+);
+
+let accounts=
+JSON.parse(
+localStorage.getItem("kesphaniaAccounts")||"[]"
+);
+
+let index=
+accounts.findIndex(
+a=>a.email===account.email
+);
+
+if(index>=0){
+
+accounts[index]=account;
+
+localStorage.setItem(
+"kesphaniaAccounts",
+JSON.stringify(accounts)
+);
+
+}
+
+renderAccount();
+
+}
+
+/* ================= LOGOUT ================= */
+
+function logout(){
+
+localStorage.removeItem("kesphaniaAccount");
+
+renderAccount();
+
+renderPurchaseHistory();
+
+alert(
+"You have been logged out. Your purchase history is hidden until you log in again."
+);
+
+}
+
+/* ================= CHECKOUT ================= */
+
+function checkout(){
+
+if(!cart.length){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+let account=
+JSON.parse(
+localStorage.getItem("kesphaniaAccount")||"null"
+);
+
+if(!account){
+
+alert(
+"Please log in or create an account before checkout."
+);
+
+openAccount();
+
+return;
+
+}
+
+document.getElementById("checkoutModal")
+.style.display="flex";
+
+document.getElementById("checkoutName").value=
+account.name||"";
+
+document.getElementById("checkoutPhone").value=
+account.phone||"";
+
+document.getElementById("checkoutAddress").value=
+account.address||"";
+
+document.getElementById("checkoutTotal")
+.textContent=
+money(
+cart.reduce((s,p)=>s+p.price,0)
+);
+
+closeCart();
+
+}
+
+function closeCheckout(){
+
+document.getElementById("checkoutModal")
+.style.display="none";
+
+}
+
+/* ================= ORDER ================= */
+
+function makeTracking(){
+
+return "KSP-"+
+Math.floor(
+10000000+
+Math.random()*90000000
+);
+
+}
+
+function placeOrder(){
+
+let account=
+JSON.parse(
+localStorage.getItem("kesphaniaAccount")||"null"
+);
+
+if(!account){
+
+alert("Please log in first.");
+
+return;
+
+}
+
+let name=
+document.getElementById("checkoutName")
+.value.trim();
+
+let phone=
+document.getElementById("checkoutPhone")
+.value.trim();
+
+let address=
+document.getElementById("checkoutAddress")
+.value.trim();
+
+let city=
+document.getElementById("checkoutCity")
+.value.trim();
+
+let province=
+document.getElementById("checkoutProvince")
+.value.trim();
+
+let postal=
+document.getElementById("checkoutPostal")
+.value.trim();
+
+if(!name||!phone||!address||!city||!province){
+
+alert(
+"Please complete all delivery information."
+);
+
+return;
+
+}
+
+let payment=
+document.querySelector(
+'input[name="payment"]:checked'
+).value;
+
+let total=
+cart.reduce(
+(s,p)=>s+p.price,
+0
+);
+
+let order={
+
+id:makeTracking(),
+
+accountEmail:account.email,
+
+date:new Date().toLocaleString(),
+
+items:[...cart],
+
+total,
+
+payment,
+
+status:"Order Placed",
+
+step:0,
+
+customer:{
+name,
+phone,
+address,
+city,
+province,
+postal
+}
+
+};
+
+let orders=
+JSON.parse(
+localStorage.getItem("kesphaniaOrders")||"[]"
+);
+
+orders.unshift(order);
+
+localStorage.setItem(
+"kesphaniaOrders",
+JSON.stringify(orders)
+);
+
+cart=[];
+
+saveCart();
+
+closeCheckout();
+
+alert(
+"Order placed successfully!\n\nTracking Number: "+
+order.id
+);
+
+renderPurchaseHistory();
+
+}
+
+/* ================= PURCHASE HISTORY ================= */
+
+function renderPurchaseHistory(){
+
+let account=
+JSON.parse(
+localStorage.getItem("kesphaniaAccount")||"null"
+);
+
+let box=
+document.getElementById(
+"purchaseHistoryList"
+);
+
+if(!account){
+
+box.innerHTML=`
+
+<div class="empty">
+
+<h3>🔐 Please Log In</h3>
+
+<p>
+Log in to see your purchase history.
+</p>
+
+<br>
+
+<button
+class="btn"
+onclick="openAccount()">
+
+LOG IN / CREATE ACCOUNT
+
+</button>
+
+</div>
+
+`;
+
+return;
+
+}
+
+let allOrders=
+JSON.parse(
+localStorage.getItem("kesphaniaOrders")||"[]"
+);
+
+let orders=
+allOrders.filter(
+o=>o.accountEmail===account.email
+);
+
+if(!orders.length){
+
+box.innerHTML=`
+
+<div class="empty">
+
+<h3>No Purchase History Yet</h3>
+
+<p>
+Your purchases will appear here after checkout.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+box.innerHTML=
+orders.map(o=>`
+
+<div class="order-card">
+
+<div class="order-head">
+
+<div>
+
+<div class="order-id">
+${safe(o.id)}
+</div>
+
+<div>
+${safe(o.date)}
+</div>
+
+</div>
+
+<div class="status">
+${safe(o.status)}
+</div>
+
+</div>
+
+<br>
+
+${o.items.map(p=>`
+
+<div class="order-line">
+
+<span>
+
+<img
+src="${p.image}"
+style="width:50px;height:50px;object-fit:cover;border-radius:8px;vertical-align:middle;margin-right:8px">
+
+${safe(p.name)}
+
+</span>
+
+<b>
+${money(p.price)}
+</b>
+
+</div>
+
+`).join("")}
+
+<div class="order-total">
+
+Total:
+${money(o.total)}
+
+</div>
+
+<br>
+
+<button
+class="btn"
+onclick="trackFromHistory('${o.id}')">
+
+🚚 TRACK ORDER
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+/* ================= TRACKING ================= */
+
+function trackFromHistory(id){
+
+showTab("tracking");
+
+document.getElementById(
+"trackingInput"
+).value=id;
+
+searchTracking();
+
+}
+
+function searchTracking(){
+
+let input=
+document.getElementById(
+"trackingInput"
+).value.trim().toUpperCase();
+
+let result=
+document.getElementById(
+"trackingResult"
+);
+
+let account=
+JSON.parse(
+localStorage.getItem("kesphaniaAccount")||"null"
+);
+
+if(!account){
+
+result.innerHTML=`
+
+<div class="track-box">
+
+<h3>🔐 Please Log In</h3>
+
+<p>
+You must log in to track your order.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+let orders=
+JSON.parse(
+localStorage.getItem("kesphaniaOrders")||"[]"
+);
+
+let order=
+orders.find(
+o=>
+o.id.toUpperCase()===input
+&&
+o.accountEmail===account.email
+);
+
+if(!order){
+
+result.innerHTML=`
+
+<div class="track-box">
+
+<h3>❌ Order Not Found</h3>
+
+<p>
+Check your tracking number.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+let current=
+Number(order.step||0);
+
+result.innerHTML=`
+
+<div class="track-box">
+
+<h3>📦 Order Found</h3>
+
+<div class="track-number">
+${safe(order.id)}
+</div>
+
+<p>
+<b>Current Status:</b>
+${steps[current]}
+</p>
+
+<div class="track-progress">
+
+${steps.map((s,i)=>`
+
+<div class="track-step ${i<=current?"active":""}">
+
+<div class="track-circle">
+${i<=current?"✓":i+1}
+</div>
+
+${s}
+
+</div>
+
+`).join("")}
+
+</div>
+
+<hr>
+
+<br>
+
+<p>
+<b>Payment:</b>
+${safe(order.payment)}
+</p>
+
+<p>
+<b>Total:</b>
+${money(order.total)}
+</p>
+
+<p>
+<b>Delivery:</b>
+${safe(order.customer.address)},
+${safe(order.customer.city)},
+${safe(order.customer.province)}
+</p>
+
+<br>
+
+<button
+class="btn"
+onclick="advanceOrder('${order.id}')">
+
+${current<5
+?"UPDATE NEXT STATUS"
+:"ORDER RECEIVED ✓"}
+
+</button>
+
+</div>
+
+`;
+
+}
+
+/* ================= ADVANCE DEMO ORDER ================= */
+
+function advanceOrder(id){
+
+let account=
+JSON.parse(
+localStorage.getItem("kesphaniaAccount")||"null"
+);
+
+if(!account)return;
+
+let orders=
+JSON.parse(
+localStorage.getItem("kesphaniaOrders")||"[]"
+);
+
+let index=
+orders.findIndex(
+o=>
+o.id===id &&
+o.accountEmail===account.email
+);
+
+if(index<0)return;
+
+if(orders[index].step>=5){
+
+alert("Order already received.");
+
+return;
+
+}
+
+orders[index].step++;
+
+orders[index].status=
+steps[orders[index].step];
+
+localStorage.setItem(
+"kesphaniaOrders",
+JSON.stringify(orders)
+);
+
+searchTracking();
+
+renderPurchaseHistory();
+
+}
+
+/* ================= REVIEWS ================= */
+
+function renderReviews(){
+
+document.getElementById(
+"reviewList"
+).innerHTML=
+
+reviews.map(r=>`
+
+<div class="review-card">
+
+<div class="stars">
+
+${"★".repeat(r.rating)}
+${"☆".repeat(5-r.rating)}
+
+</div>
+
+<h4>${safe(r.name)}</h4>
+
+<p>${safe(r.text)}</p>
+
+</div>
+
+`).join("");
+
+}
+
+function addReview(){
+
+let name=
+document.getElementById(
+"reviewName"
+).value.trim();
+
+let text=
+document.getElementById(
+"reviewText"
+).value.trim();
+
+let rating=
+Number(
+document.getElementById(
+"reviewRating"
+).value
+);
+
+if(!name||!text){
+
+alert(
+"Please enter your name and review."
+);
+
+return;
+
+}
+
+reviews.unshift({
+name,
+rating,
+text
+});
+
+localStorage.setItem(
+"kesphaniaReviews",
+JSON.stringify(reviews)
+);
+
+document.getElementById(
+"reviewName"
+).value="";
+
+document.getElementById(
+"reviewText"
+).value="";
+
+renderReviews();
+
+alert(
+"Thank you for your review!"
+);
+
+}
+
+/* ================= MODAL CLICK ================= */
+
+window.addEventListener(
+"click",
+function(e){
+
+if(
+e.target.classList.contains("modal")
+){
+
+e.target.style.display="none";
+
+}
+
+});
+
+/* ================= START ================= */
+
+renderProducts();
+
+renderReviews();
+
+renderPurchaseHistory();
+
+saveCart();
+
+</script>
+
+</body>
+</html>
